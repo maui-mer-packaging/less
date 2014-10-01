@@ -1,0 +1,33 @@
+Name: less
+Summary: A text file browser similar to more, but better
+Version: 436
+Release: 5
+Group: Applications/Text
+License: GPLv3+
+URL: http://www.greenwoodsoftware.com/less/
+Sources:
+    - http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
+    - lesspipe.sh
+    - less.sh
+    - less.csh
+Patches:
+    - less-406-Foption.patch
+    - less-394-time.patch
+    - less-418-fsync.patch
+    - less-436-manpage.patch
+Description: |
+    The less utility is a text file browser that resembles more, but has
+    more capabilities.  Less allows you to move backwards in the file as
+    well as forwards.  Since less doesn't have to read the entire input file
+    before it starts, less starts up more quickly than text editors (for
+    example, vi). 
+    
+    You should install less because it is a basic utility for viewing text
+    files, and you'll use it frequently.
+
+PkgBR:
+    - autoconf
+    - automake
+    - libtool
+PkgConfigBR:
+    - ncurses
