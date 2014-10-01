@@ -1,4 +1,4 @@
-LESSKEY(1)                                                          LESSKEY(1)
+LESSKEY(1)                  General Commands Manual                 LESSKEY(1)
 
 
 
@@ -13,7 +13,7 @@ LESSKEY(1)                                                          LESSKEY(1)
 
 [1mDESCRIPTION[0m
        [4mLesskey[24m  is  used  to specify a set of key bindings to be used by [4mless.[0m
-       The input file is a text file which describes the key bindings, If  the
+       The input file is a text file which describes the key bindings.  If the
        input  file is "-", standard input is read.  If no input file is speci-
        fied, a standard filename is used as the name of the input file,  which
        depends  on  the  system being used: On Unix systems, $HOME/.lesskey is
@@ -105,7 +105,7 @@ LESSKEY(1)                                                          LESSKEY(1)
        can  be used in certain cases to extend the functionality of a command.
        For example, see the "{" and ":t" commands in the example  below.   The
        extra  string  has  a  special meaning for the "quit" action: when [4mless[0m
-       quits, first character of the extra string is used as its exit  status.
+       quits, first character of the extra string is used as its exit status.
 
 
 [1mEXAMPLE[0m
@@ -145,6 +145,7 @@ LESSKEY(1)                                                          LESSKEY(1)
             w         back-window
             \e\40          forw-screen-force
             F         forw-forever
+            \eF       forw-until-hilite
             R         repaint-flush
             r         repaint
             ^R        repaint
@@ -172,6 +173,7 @@ LESSKEY(1)                                                          LESSKEY(1)
             \e>       goto-end
             >         goto-end
             \ke  goto-end
+            \eG       goto-end-buffered
             =         status
             ^G        status
             :f        status
@@ -225,12 +227,12 @@ LESSKEY(1)                                                          LESSKEY(1)
 
 
 [1mPRECEDENCE[0m
-       Commands specified by [4mlesskey[24m take precedence  over  the  default  com-
-       mands.   A  default  command key may be disabled by including it in the
-       input file with the action "invalid".   Alternatively,  a  key  may  be
-       defined  to  do  nothing by using the action "noaction".  "noaction" is
+       Commands  specified  by  [4mlesskey[24m  take precedence over the default com-
+       mands.  A default command key may be disabled by including  it  in  the
+       input  file  with  the  action  "invalid".  Alternatively, a key may be
+       defined to do nothing by using the action  "noaction".   "noaction"  is
        similar to "invalid", but [4mless[24m will give an error beep for an "invalid"
-       command,  but  not  for a "noaction" command.  In addition, ALL default
+       command, but not for a "noaction" command.  In  addition,  ALL  default
        commands may be disabled by adding this control line to the input file:
 
        #stop
@@ -287,6 +289,7 @@ LESSKEY(1)                                                          LESSKEY(1)
             \ek       up
             \ku       up
             \ej       down
+            ^G        abort
 
 
 
@@ -322,40 +325,34 @@ LESSKEY(1)                                                          LESSKEY(1)
 
 
 [1mWARNINGS[0m
-       It  is not possible to specify special keys, such as uparrow, in a key-
-       board-independent manner.  The only way to  specify  such  keys  is  to
-       specify the escape sequence which a particular keyboard sends when such
-       a key is pressed.
-
-       On MS-DOS and OS/2 systems, certain keys send a sequence of  characters
-       which  start  with  a  NUL character (0).  This NUL character should be
+       On  MS-DOS and OS/2 systems, certain keys send a sequence of characters
+       which start with a NUL character (0).  This  NUL  character  should  be
        represented as \340 in a lesskey file.
 
 
 [1mCOPYRIGHT[0m
-       Copyright (C) 2000-2009  Mark Nudelman
+       Copyright (C) 1984-2014  Mark Nudelman
 
-       lesskey is part of the GNU project and is free software; you can redis-
-       tribute  it  and/or modify it under the terms of the GNU General Public
-       License as published by the Free Software Foundation; either version 2,
-       or (at your option) any later version.
+       less  is  part of the GNU project and is free software.  You can redis-
+       tribute it and/or modify it under the terms of either (1) the GNU  Gen-
+       eral  Public  License  as published by the Free Software Foundation; or
+       (2) the Less License.  See the file README in the less distribution for
+       more details regarding redistribution.  You should have received a copy
+       of the GNU General Public License along with the source for  less;  see
+       the  file  COPYING.   If not, write to the Free Software Foundation, 59
+       Temple Place, Suite 330, Boston, MA  02111-1307, USA.  You should  also
+       have received a copy of the Less License; see the file LICENSE.
 
-       lesskey  is distributed in the hope that it will be useful, but WITHOUT
-       ANY WARRANTY; without even the implied warranty of  MERCHANTABILITY  or
-       FITNESS  FOR  A PARTICULAR PURPOSE.  See the GNU General Public License
-       for more details.
-
-       You should have received a copy of the GNU General Public License along
-       with lesskey; see the file COPYING.  If not, write to the Free Software
-       Foundation, 59 Temple Place, Suite 330, Boston, MA  02111-1307, USA.
+       less is distributed in the hope that it will be useful, but WITHOUT ANY
+       WARRANTY; without even the implied warranty of MERCHANTABILITY or  FIT-
+       NESS  FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+       more details.
 
 
 [1mAUTHOR[0m
-       Mark Nudelman <markn@greenwoodsoftware.com>
-       Send  bug  reports  or  comments  to  the  above  address  or  to  bug-
-       less@gnu.org.
+       Mark Nudelman
+       Send bug reports or comments to <bug-less@gnu.org>.
 
 
 
-
-                           Version 436: 07 Jul 2009                 LESSKEY(1)
+                           Version 468: 18 Sep 2014                 LESSKEY(1)

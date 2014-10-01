@@ -1,11 +1,10 @@
 /*
- * Copyright (C) 1984-2009  Mark Nudelman
+ * Copyright (C) 1984-2014  Mark Nudelman
  *
  * You may distribute under the terms of either the GNU General Public
  * License or the Less License, as specified in the README file.
  *
- * For more information about less, or for information on how to 
- * contact the author, see the README file.
+ * For more information, see the README file.
  */
 
 
@@ -310,6 +309,10 @@ edit_ifile(ifile)
 		 */
 		__djgpp_set_ctrl_c(1);
 #endif
+	} else if (strcmp(open_filename, FAKE_EMPTYFILE) == 0)
+	{
+		f = -1;
+		chflags |= CH_NODATA;
 	} else if (strcmp(open_filename, FAKE_HELPFILE) == 0)
 	{
 		f = -1;
@@ -430,7 +433,7 @@ edit_ifile(ifile)
 #if HILITE_SEARCH
 		clr_hilite();
 #endif
-		cmd_addhist(ml_examine, filename);
+		cmd_addhist(ml_examine, filename, 1);
 		if (no_display && errmsgs > 0)
 		{
 			/*
