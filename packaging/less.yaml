@@ -1,20 +1,15 @@
 Name: less
 Summary: A text file browser similar to more, but better
-Version: 436
-Release: 5
+Version: 468
+Release: 1
 Group: Applications/Text
 License: GPLv3+
 URL: http://www.greenwoodsoftware.com/less/
 Sources:
-    - http://www.greenwoodsoftware.com/less/%{name}-%{version}.tar.gz
+    - "%{name}-%{version}.tar.xz"
     - lesspipe.sh
     - less.sh
     - less.csh
-Patches:
-    - less-406-Foption.patch
-    - less-394-time.patch
-    - less-418-fsync.patch
-    - less-436-manpage.patch
 Description: |
     The less utility is a text file browser that resembles more, but has
     more capabilities.  Less allows you to move backwards in the file as
@@ -31,3 +26,5 @@ PkgBR:
     - libtool
 PkgConfigBR:
     - ncurses
+
+Builder: none
